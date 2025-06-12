@@ -1,5 +1,7 @@
-import { StyleSheet, Dimensions } from "react-native";
-const { width, height } = Dimensions.get("window");
+// APP_HUELLITAS/src/styles/LoginScreen.styles.ts
+
+import { StyleSheet, Dimensions } from "react-native"; 
+const { width, height } = Dimensions.get("window"); 
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -67,16 +69,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: width * 0.04,
   },
   button: {
-    backgroundColor: "#72999A",
-    paddingVertical: height * 0.02,
-    borderRadius: 20,
     alignItems: "center",
-    marginTop: height * 0.02,
+    backgroundColor: "#72999A",
+    borderRadius: width * 0.05,
+    marginBottom: height * 0.02,
+    marginHorizontal: width * 0.1,
+    paddingVertical: height * 0.015,
   },
   buttonText: {
-    color: "#FFF",
-    fontSize: width * 0.05,
-    fontWeight: "bold",
+    color: "#FFFFFF",
+    fontSize: width * 0.07,
+  },
+  errorText: {
+    color: 'red', 
+    textAlign: 'center',
+    marginBottom: height * 0.02, 
+    fontSize: width * 0.04, 
+  },
+  linkButton: {
+    marginTop: height * 0.02, 
+    paddingVertical: height * 0.01, 
+    alignItems: 'center', 
+  },
+  linkButtonText: {
+    color: '#72999A', 
+    fontSize: width * 0.045, 
   },
 });
 
