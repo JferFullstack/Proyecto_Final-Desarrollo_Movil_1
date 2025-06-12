@@ -4,6 +4,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from "../../App";
 import styles from "../styles/LoginScreen.style";
 import { loginUser } from '../services/auth.service';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function LoginScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -23,14 +24,16 @@ export function LoginScreen() {
     try {
       const result = await loginUser({ email, password });
 
-      if (result.success) {
+      if (result.success) { 
         console.log('Inicio de sesión exitoso');
         console.log('Mensaje:', result.message);
-        if (result.token) {
+        if (result.token) { 
           console.log('Token recibido:', result.token);
+          await AsyncStorage.setItem('userToken', result.token);
+          console.log('Token guardado en AsyncStorage');
         }
         Alert.alert('Éxito', result.message || 'Inicio de sesión exitoso.');
-        // navigation.navigate('Home'); // Descomenta esta línea cuando tengas tu pantalla Home
+        // navigation.navigate('Home'); 
       } else {
         setErrorMessage(result.message || 'Error desconocido al iniciar sesión.');
       }

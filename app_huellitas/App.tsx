@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { WelcomeScreen } from './src/screens/WelcomeScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { CreateAccountScreen } from './src/screens/CreateAccountScreen';
+import { RegisterPetScreen } from './src/screens/RegisterPetScreen';
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -13,7 +14,7 @@ export type RootStackParamList = {
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
+/*
 export default function App() {
   return (
     <NavigationContainer>
@@ -33,7 +34,21 @@ export default function App() {
           component={CreateAccountScreen} 
           options={{ headerShown: false }} 
         />
+        <Stack.Screen
+          name="RegisterPet"
+          component={RegisterPetScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+*/
+
+export default function AppDev(): React.JSX.Element {
+  return (
+    <NavigationContainer>
+      <RegisterPetScreen />
     </NavigationContainer>
   );
 }
