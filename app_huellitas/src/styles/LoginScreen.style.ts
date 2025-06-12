@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.03,
   },
   passwordGroup: {
-    marginBottom: height * 0.05,
+    marginBottom: height * 0.01, // Reducido para acercar el errorText
   },
   label: {
     color: "#000000",
     fontSize: width * 0.045,
     marginBottom: height * 0.01,
-    marginLeft: width * 0.04, // <--- CAMBIO AQUÍ: Ahora coincide con el paddingHorizontal del input
+    marginLeft: width * 0.04,
   },
   input: {
     height: height * 0.06,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     textAlign: 'center',
-    marginBottom: height * 0.02,
+    marginBottom: height * 0.03, // Aumentado para separar del botón
     fontSize: width * 0.04,
   },
   linkButton: {
