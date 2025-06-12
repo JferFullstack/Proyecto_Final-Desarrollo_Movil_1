@@ -45,21 +45,22 @@ const styles = StyleSheet.create({
     paddingBottom: height * 0.08,
     marginTop: height * 0.08,
     flex: 1,
-    alignItems: "center",
+    alignItems: "center", // Mantiene la tarjeta centrada horizontalmente
+    paddingHorizontal: width * 0.08, // <-- CLAVE: Espaciado lateral para todo el contenido de la tarjeta
   },
   welcomeText: {
     color: "#000000",
     fontSize: width * 0.1,
     fontWeight: "bold",
     marginBottom: height * 0.03,
-    marginHorizontal: width * 0.1,
+    marginHorizontal: width * 0.1, // Esto se aplica si el elemento no es stretch
     textAlign: "center",
   },
   description: {
     color: "#000000",
     fontSize: width * 0.06,
     marginBottom: height * 0.05,
-    marginHorizontal: width * 0.1,
+    marginHorizontal: width * 0.1, // Esto se aplica si el elemento no es stretch
     textAlign: "center",
   },
   cardTitle: {
@@ -70,17 +71,18 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.04,
   },
   inputGroup: {
-    alignSelf: "stretch",
+    alignSelf: "stretch", // <-- CLAVE: Asegura que el inputGroup ocupe el ancho disponible dentro del card
     marginBottom: height * 0.03,
   },
   passwordGroup: {
-    marginBottom: height * 0.01, // Reducido para acercar el errorText
+    alignSelf: "stretch", // También para el grupo de contraseña
+    marginBottom: height * 0.05,
   },
   label: {
     color: "#000000",
     fontSize: width * 0.045,
     marginBottom: height * 0.01,
-    marginLeft: width * 0.04,
+    marginLeft: 0, // <-- REVISADO: Eliminar margin para que el paddingHorizontal del card lo maneje
   },
   input: {
     height: height * 0.06,
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     borderColor: "#72999AE3",
     borderRadius: width * 0.02,
     borderWidth: 1,
-    paddingHorizontal: width * 0.04,
+    paddingHorizontal: width * 0.04, // <-- CLAVE: Mantiene el padding interno del input
     color: "#000000",
   },
   button: {
@@ -96,9 +98,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#72999A",
     borderRadius: width * 0.05,
     marginBottom: height * 0.02,
-    marginHorizontal: width * 0.1,
+    // marginHorizontal: width * 0.1, // Esto ahora lo manejará el padding de la tarjeta y alignSelf: "stretch"
     paddingVertical: height * 0.025,
-    alignSelf: "stretch",
+    alignSelf: "stretch", // CLAVE: Para que el botón se estire dentro del card padding
   },
   buttonText: {
     color: "#FFFFFF",
@@ -107,8 +109,9 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     textAlign: 'center',
-    marginBottom: height * 0.03, // Aumentado para separar del botón
+    marginBottom: height * 0.02,
     fontSize: width * 0.04,
+    // alignSelf: "stretch", // Opcional, pero ayuda a centrar si el texto es muy corto
   },
   linkButton: {
     marginTop: height * 0.02,
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   linkButtonText: {
-    color: '#007bff',
+    color: '#72999A', // Asegúrate de que este color sea el correcto para el enlace
     fontSize: width * 0.045,
   },
   pickerContainer: {
